@@ -2,7 +2,7 @@
 {
     internal class Excercise_1
     {
-        public static void Main(string[] args)
+        public static void Main11(string[] args)
         {
             //1. AD/Sum two number
             Console.WriteLine("1. ADD / SUM TWO NUMBERS");
