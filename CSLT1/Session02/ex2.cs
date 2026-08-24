@@ -61,7 +61,7 @@ namespace CSLT1.Session02
             float mod = a % b;
             Console.WriteLine($"{a} + {b} = {sum}\n{a} - {b} = {subtract}\n{a} x {b} = {multi}\n{a} / {b} = {divide}\n{a} mod {b} = {mod}");
         }
-        public static void Main(string[] args)
+        public static void Main11(string[] args)
         {
             
             //            Nhập vào chỉ số điện cũ(kWh) và chỉ số điện mới(kWh).Kiểm tra điều kiện chỉ số mới phải lớn hơn hoặc
