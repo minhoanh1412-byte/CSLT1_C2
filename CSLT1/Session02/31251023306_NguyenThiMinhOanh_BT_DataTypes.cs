@@ -325,7 +325,7 @@ namespace CSLT1.Session02
             Console.WriteLine($"Xếp loại học lực:{Xeploai}");
             }
         
-        public static void Main(string[] args)
+        public static void Main233(string[] args)
         {
 
             

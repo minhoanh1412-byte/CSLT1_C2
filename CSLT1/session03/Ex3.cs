@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSLT1.session03
 {
-    internal class Ex3
+    internal class Ex3 //Bài tập yc trên lớp
     {
         static void Bai_1()
         {
@@ -18,8 +18,8 @@ namespace CSLT1.session03
             Console.WriteLine($"{a}*{b}={a*b}");
             Console.WriteLine($"{a}/{b}={a/b}");
             Console.WriteLine($"{a}mod{b}={a%b}");
-        }
-        static void Bai_2()
+        } // Tính toán +,-,x,/,%
+        static void Bai_2() // tính x = y2+2y+1
         {
             //            Write a C# Sharp program to display certain values of the function x = y2
             //+ 2y + 1(using integer numbers for y, ranging from - 5 to + 5).
@@ -39,7 +39,7 @@ namespace CSLT1.session03
             Console.WriteLine($"Gia tri của x = y2 +2y +1 ={x}");
 
         }
-        static void Bai_3()
+        static void Bai_3() // phương trình C# nhận dữ liệu đầu là quãng đường $thgian sau đó hiện vt theo h,dặm
         {
             //Hãy viết một chương trình C# nhận dữ liệu đầu vào là quãng đường và thời gian (giờ, phút, giây), 
             //    sau đó hiển thị vận tốc theo đơn vị kilômét/giờ (km/h) và dặm/giờ (miles/h).
@@ -62,7 +62,7 @@ namespace CSLT1.session03
             Console.WriteLine($"Vận tốc theo dặm:{speedMph:F2}");
 
         }
-        static void Bai_4()
+        static void Bai_4() //Tính diện tích và thể tích hình cầu
         {
             double r;
             do
@@ -81,25 +81,31 @@ namespace CSLT1.session03
             Console.WriteLine($"Diện tích bề mặt hình cầu:{dientich}");
             Console.WriteLine($"Thể tích bề mặt hình cầu:{thetich}");
         }
-        static void Ptbac2(int a, int b, int c)
+        static void Ptbac2()
         {
             // Giai pt bậc 2
-            if (a==0)
+            Console.Write("Nhập số a:");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Nhập số b:");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("Nhập số c:");
+            int c = int.Parse(Console.ReadLine());
+            if (a == 0)
             {
-                if (b==0)
+                if (b == 0)
                 {
-                    if(c==0)
+                    if (c == 0)
                     {
                         Console.WriteLine("Phương trình vô số nghiệm, x tùy ý");
-                    }   
+                    }
                     else
                     {
                         Console.WriteLine("Vô lý");
-                    }   
+                    }
                 }
                 else //a=0, b!=0
                 {
-                    if(c==0) //bx = 0
+                    if (c == 0) //bx = 0
                     {
                         Console.WriteLine("x=0");
                     }
@@ -108,29 +114,32 @@ namespace CSLT1.session03
                         Console.WriteLine($"Phương trình có một nghiệm x={-c / b}");
                     }
 
-                        
+
                 }
-                    
+
             }
             else //a!=0
             {
-                double a = 
                 double delta = b * b - 4 * a * c;
                 if (delta > 0)
-                    Console.WriteLine($"Phương trình có hai nghiệm phân biệt x1={Math.Sqrt(delta)
-            }
-                
-
-
+                    Console.WriteLine($"Phương trình có hai nghiệm phân biệt x1 = {(-b + Math.Sqrt(delta)) / 2 * a}; x2 = {(-b - Math.Sqrt(delta)) / 2 * a}");
+                else if (delta < 0)
+                    Console.WriteLine("Phương trình vô nghiệm");
+                else
+                    Console.WriteLine($"Phương trình có một nghiệm kép x = {-b / 2 * a}");
         }
-        public static void Main(string[] args)
+
+        } // giải phương trình bậc bậc 2 1 ẩn
+        public static void Main11(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             //Bai_1();
             //Bai_2();
             //Bai_3();
             //Bai_4();
-            Ptbac2();
+            //Ptbac2();
+            
+            Console.WriteLine("-----PRESS ANY KEY TO EXIT-----");
         }
 
     }

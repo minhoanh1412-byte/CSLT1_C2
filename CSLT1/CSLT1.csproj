@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Session01\NewFolder\" />
+    <Compile Remove="Session01\NewFolder\**" />
+    <EmbeddedResource Remove="Session01\NewFolder\**" />
+    <None Remove="Session01\NewFolder\**" />
   </ItemGroup>
 
 </Project>
