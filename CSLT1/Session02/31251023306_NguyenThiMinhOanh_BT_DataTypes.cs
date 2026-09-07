@@ -404,38 +404,38 @@ namespace CSLT1.Session02
 
         }
         
-        public static void Main(string[] args)
+        public static void Main2344(string[] args)
         {
             
             Console.OutputEncoding = Encoding.UTF8;
-            Bai_6();
-            //int luaChon;
-            //do
-            //{
-            //    Console.WriteLine("===== MENU BÀI TẬP =====");
-            //    Console.WriteLine("1. Bài 1 - Tính tiền điện");
-            //    Console.WriteLine("2. Bài 2 - Tính BMI");
-            //    Console.WriteLine("3. Bài 3 - Đổi ngoại tệ");
-            //    Console.WriteLine("4. Bài 4 - Tính tuổi");
-            //    Console.WriteLine("5. Bài 5 - Điểm trung bình");
-            //    Console.WriteLine("0. Thoát");
-            //    Console.Write("Chọn bài muốn chạy: ");
-            //    luaChon = int.Parse(Console.ReadLine());
+            //Bai_6();
+            int luaChon;
+            do
+            {
+                Console.WriteLine("===== MENU BÀI TẬP =====");
+                Console.WriteLine("1. Bài 1 - Tính tiền điện");
+                Console.WriteLine("2. Bài 2 - Tính BMI");
+                Console.WriteLine("3. Bài 3 - Đổi ngoại tệ");
+                Console.WriteLine("4. Bài 4 - Tính tuổi");
+                Console.WriteLine("5. Bài 5 - Điểm trung bình");
+                Console.WriteLine("0. Thoát");
+                Console.Write("Chọn bài muốn chạy: ");
+                luaChon = int.Parse(Console.ReadLine());
 
-            //    switch (luaChon)
-            //    {
-            //        case 1: Bai_1(); break;
-            //        case 2: Bai_2(); break;
-            //        case 3: Bai_3(); break;
-            //        case 4: Bai_4(); break;
-            //        case 5: Bai_5(); break;
-            //        case 6: Bai_6(); break;
-            //        case 0: Console.WriteLine("Tạm biệt!"); break;
-            //        default: Console.WriteLine("Lựa chọn không hợp lệ!"); break;
-            //    }
+                switch (luaChon)
+                {
+                    case 1: Bai_1(); break;
+                    case 2: Bai_2(); break;
+                    case 3: Bai_3(); break;
+                    case 4: Bai_4(); break;
+                    case 5: Bai_5(); break;
+                    case 6: Bai_6(); break;
+                    case 0: Console.WriteLine("Tạm biệt!"); break;
+                    default: Console.WriteLine("Lựa chọn không hợp lệ!"); break;
+                }
 
-            //} while (luaChon != 0);
-            //Console.WriteLine("*****PRESS ANY KEY TO EXIT*****");
+            } while (luaChon != 0);
+            Console.WriteLine("*****PRESS ANY KEY TO EXIT*****");
         }
         
     }
