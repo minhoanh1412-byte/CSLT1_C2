@@ -324,38 +324,118 @@ namespace CSLT1.Session02
             Console.WriteLine($"Điểm GPA thang 4:{thangdiem}");
             Console.WriteLine($"Xếp loại học lực:{Xeploai}");
             }
+        //hàm phụ trợ giúp bỏ dấu tiếng việt
         
-        public static void Main233(string[] args)
-        {
+        static void Bai_6()
 
+        {
+            //            Kiến thức trọng tâm: Kiểu string, các phương thức Trim(), Split(), Substring(), ToLower(), ToUpper(),
+            //string.Join().
+            //Yêu cầu bài toán:
+            //• Nhập vào một chuỗi họ tên thô từ bàn phím(Ví dụ: " ngUYỄN vĂn aN ").
+            //• Loại bỏ khoảng trắng thừa ở đầu, cuối và giữa các từ(chỉ giữ lại 1 khoảng trắng giữa các từ).
+            //• Chuyển đổi chuỗi thành dạng Viết Hoa Chữ Cái Đầu Mỗi Từ(Title Case): "Nguyễn Văn An".
+            //• Tách thành Họ, Tên Đệm và Tên chính.
+            //• Tạo Username không dấu theo quy tắc: ten.hovatenm. (Ví dụ: an.nguyenvan).
+            //• Tạo Email công ty: username + "@company.edu.vn"
+            static string BoDauTiengViet(string s)
+            {
+                //tách rời chữ cái gốc và dấu thanh điệu thành 2 phần vd: â dc tách thành a +[dấu] ( 2 ký tự riêng )
+                string ChuanHoa = s.Normalize(NormalizationForm.FormD);
+                //tạo stringbuilder để ghép chuỗi kq
+                StringBuilder sb = new StringBuilder();
+                //duyệt qua từng ký tự trong chuỗi đã tách
+                foreach (char c in ChuanHoa)
+                {
+                    //kiểm tra c có phải dấu hay k
+                    //unicode....: loại danh mục dành cho các dấu k chiếm chỗ riêng
+                    if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                    {
+                        sb.Append(c);
+                    }
+                    //Nếu là dấu thì k thêm vào sb
+                }
+                //chuyển stringbuildẻr về kiểu string bình thg
+                //normalize về dạng C dạng chuẩn 1 chuỗi.
+                string ketQua = sb.ToString().Normalize(NormalizationForm.FormC);
+                ketQua = ketQua.Replace('đ', 'd').Replace('Đ', 'D');
+                return ketQua;
+            }
+
+            Console.WriteLine("------INPUT-----");
+            Console.WriteLine("Nhập họ và tên thô:");
+            string input=Console.ReadLine();
+            //Bước 1: Trim()+chuẩn hoá khoảng trắng giữa các từ/xoá khoảng trắng đầu cuối
+            string buoc1 = input.Trim();
+            string[] tachTam = buoc1.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            buoc1 = string.Join(" ", tachTam);// ghép các phần tử trong mảng lại, chèn dấu " " giữa mỗi phần tử
+            Console.WriteLine($"[Bước 1] Sau khi chuẩn hoá khoảng trắng: {buoc1}");
+            //Bước 2: Viết hoa chữ đầu mỗi từ
+            string[] tuList = buoc1.Split(' ');//tách chuỗi thành từng mảng từ riêng lẻ
+            //Vòng lặp for chạy qua từng phân tử
+            for (int i = 0; i < tuList.Length; i++)
+            {
+                string tuThuong = tuList[i].ToLower();// lấy từ vị trí i, bién tất cả thành in thường
+                string kytuDau = tuThuong.Substring(0, 1).ToUpper();// lấy đúng kí tự đầu: t viết hoa T
+                string phanConLai = tuThuong.Substring(1);// lấy phần còn lại của từ bắt đầu từ vị trí 1 tới hết
+                tuList[i] = kytuDau + phanConLai; //  ghép lại r gắn lại đúng vị trí i trong mảng tuList
+           
+            }
+            string buoc2 = string.Join (" ", tuList);// ghép lại thành chuỗi hoàn chỉnh, cách nhau bởi dấu cách
+            Console.WriteLine($"[Bước 2] Sau khi chuyển Title case:\"{buoc2}\"");
+            string[] parts = buoc2.Split(" "); // tách chuỗi bươc 2 thành từng từ
+            string ho = parts[0];
+            string tenChinh = parts[parts.Length - 1];
+            string tenDem = string.Join(" ", parts, 1, parts.Length - 2);
+            Console.WriteLine($"[Bước 3] Họ = {ho}, Tên đệm: {tenDem}, Tên Chính: {tenChinh}");
+            //Bước 4: Bỏ dấu tiếng Việt, ghép username/email
+            string tenChinhKhongDau = BoDauTiengViet(tenChinh).ToLower();
+            string hoKhongDau = BoDauTiengViet(ho).ToLower();
+            string TenDemKoDau = BoDauTiengViet(tenDem).ToLower().Replace(" ","");
+            string username = $"{tenChinhKhongDau}.{hoKhongDau}{TenDemKoDau}{tenChinhKhongDau}";
+            string email = $"{username}@company.edu.vn";
+            Console.WriteLine($"[Bước 4] Username: {username}, email:{email}");
+            Console.WriteLine();
+            Console.WriteLine("-----OUTPUT------");
+            Console.WriteLine($"Họ và tên chuẩn hoá: {buoc2}");
+            Console.WriteLine($"Họ:{ho} | Tên đệm: {tenDem} | Tên: {tenChinh}");
+            Console.WriteLine($"Username tạo tự động: {username}");
+            Console.WriteLine($"Email cấp phát: {email}");
+
+        }
+        
+        public static void Main(string[] args)
+        {
             
             Console.OutputEncoding = Encoding.UTF8;
-            int luaChon;
-            do
-            {
-                Console.WriteLine("===== MENU BÀI TẬP =====");
-                Console.WriteLine("1. Bài 1 - Tính tiền điện");
-                Console.WriteLine("2. Bài 2 - Tính BMI");
-                Console.WriteLine("3. Bài 3 - Đổi ngoại tệ");
-                Console.WriteLine("4. Bài 4 - Tính tuổi");
-                Console.WriteLine("5. Bài 5 - Điểm trung bình");
-                Console.WriteLine("0. Thoát");
-                Console.Write("Chọn bài muốn chạy: ");
-                luaChon = int.Parse(Console.ReadLine());
+            Bai_6();
+            //int luaChon;
+            //do
+            //{
+            //    Console.WriteLine("===== MENU BÀI TẬP =====");
+            //    Console.WriteLine("1. Bài 1 - Tính tiền điện");
+            //    Console.WriteLine("2. Bài 2 - Tính BMI");
+            //    Console.WriteLine("3. Bài 3 - Đổi ngoại tệ");
+            //    Console.WriteLine("4. Bài 4 - Tính tuổi");
+            //    Console.WriteLine("5. Bài 5 - Điểm trung bình");
+            //    Console.WriteLine("0. Thoát");
+            //    Console.Write("Chọn bài muốn chạy: ");
+            //    luaChon = int.Parse(Console.ReadLine());
 
-                switch (luaChon)
-                {
-                    case 1: Bai_1(); break;
-                    case 2: Bai_2(); break;
-                    case 3: Bai_3(); break;
-                    case 4: Bai_4(); break;
-                    case 5: Bai_5(); break;
-                    case 0: Console.WriteLine("Tạm biệt!"); break;
-                    default: Console.WriteLine("Lựa chọn không hợp lệ!"); break;
-                }
+            //    switch (luaChon)
+            //    {
+            //        case 1: Bai_1(); break;
+            //        case 2: Bai_2(); break;
+            //        case 3: Bai_3(); break;
+            //        case 4: Bai_4(); break;
+            //        case 5: Bai_5(); break;
+            //        case 6: Bai_6(); break;
+            //        case 0: Console.WriteLine("Tạm biệt!"); break;
+            //        default: Console.WriteLine("Lựa chọn không hợp lệ!"); break;
+            //    }
 
-            } while (luaChon != 0);
-            Console.WriteLine("*****PRESS ANY KEY TO EXIT*****");
+            //} while (luaChon != 0);
+            //Console.WriteLine("*****PRESS ANY KEY TO EXIT*****");
         }
         
     }
