@@ -7,7 +7,7 @@ namespace CSLT1.Session04
     internal class BT4
     {
 
-        public static void Main(string[] args)
+        public static void Main149(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             //BangCuuChuong();
