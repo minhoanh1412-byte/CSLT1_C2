@@ -7,7 +7,7 @@ namespace CSLT1.Session05
 {
     internal class BT_5
     {
-        public static void Main(string[] args)
+        public static void Main231(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             Bai1();//Tổng 2 số
