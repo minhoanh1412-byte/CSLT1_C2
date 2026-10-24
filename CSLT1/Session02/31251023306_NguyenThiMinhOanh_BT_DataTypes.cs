@@ -156,8 +156,8 @@ namespace CSLT1.Session02
             } while (true);
             CurrencyType loai;
             decimal tygia = 0;
-            string kihieu = ""; 
-            while (true) 
+            string kihieu = "";
+            while (true)
             {
                 Console.Write("Chọn ngoại tệ (1-USD, 2-EUR, 3-JPY, 4-GBP): ");
                 int luaChon = int.Parse(Console.ReadLine());
@@ -171,22 +171,23 @@ namespace CSLT1.Session02
                     case 4: loai = CurrencyType.GBP; tygia = 32100; kihieu = "GBP"; break;
                     default:
                         Console.WriteLine("Lựa chọn không hợp lệ");
-                    HopLe = false;
+                        HopLe = false;
                         break;
 
-            }
+                }
                 if (HopLe)
                     break;
             }
-            decimal phi = vnd * 0.5m/100;
-            decimal Sotiensauphi = vnd - phi;
-            decimal sotienngoaite = Sotiensauphi / tygia;
-            Console.WriteLine("--- OUTPUT ---");
-            Console.WriteLine($"Phí dịch vụ (0.5%): {phi.ToString("N0", us)} VNĐ");
-            Console.WriteLine($"Số tiền VNĐ tính đổi: {Sotiensauphi.ToString("N0", us)} VNĐ");
-            Console.WriteLine($"Số tiền {kihieu} nhận được: {sotienngoaite.ToString("N2", us)} {kihieu}");
 
-        }
+                decimal phi = vnd * 0.5m / 100;
+                decimal Sotiensauphi = vnd - phi;
+                decimal sotienngoaite = Sotiensauphi / tygia;
+                Console.WriteLine("--- OUTPUT ---");
+                Console.WriteLine($"Phí dịch vụ (0.5%): {phi.ToString("N0", us)} VNĐ");
+                Console.WriteLine($"Số tiền VNĐ tính đổi: {Sotiensauphi.ToString("N0", us)} VNĐ");
+                Console.WriteLine($"Số tiền {kihieu} nhận được: {sotienngoaite.ToString("N2", us)} {kihieu}");
+
+            }
         enum CurrencyType
         {
             USD, EUR, JPY, GBP
@@ -218,8 +219,9 @@ namespace CSLT1.Session02
                     "dd/MM/yyyy",  //xem chuỗi text gõ vào
                     CultureInfo.InvariantCulture, //bỏ qua locate mỗi máy, thiết lập theo chuẩn cố định
                     DateTimeStyles.None,// thêm tuỳ chọn xử lý đặc biệt, none là k áp dụng tuỳ chọn nào thêm
-                    out ngaysinh //nếu parse thành công, giá trị datetime dc trả về vào ngaysinh
-);
+                    out ngaysinh);
+                //nếu parse thành công, giá trị datetime dc trả về vào ngaysinh
+
                 if (ok)
                     break;
                 else
@@ -269,7 +271,7 @@ namespace CSLT1.Session02
             //Điểm GPA Thang 4: 3.0
             //Xếp Loại Học Lực: Khá
 
-            void Nhapmon(string tenMon, out double diemso, out int tinChi)
+            static void Nhapmon(string tenMon, out double diemso, out int tinChi)
             {
                 do
                 {
@@ -284,7 +286,7 @@ namespace CSLT1.Session02
 
                 } while (true);
             }
-                void Quydoi(double scoreAvg, out char diemchu, out double thangdiem, out string Xeploai)
+                static void Quydoi(double scoreAvg, out char diemchu, out double thangdiem, out string Xeploai)
                 {
                     if (scoreAvg >= 8.5 && scoreAvg <= 10)
                     {

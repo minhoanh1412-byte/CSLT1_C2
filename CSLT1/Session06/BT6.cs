@@ -12,7 +12,7 @@ namespace CSLT1.Session06
     internal class BT6
     {
 
-        public static void Main(string[] args)
+        public static void Main123412(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             //Bai1to8();
